@@ -320,7 +320,7 @@ module Scheduler
 
     def determine_at
 
-      iin = @t.is_a?(Fixnum) || @t.is_a?(Float) ?
+      iin = @t.is_a?(Integer) || @t.is_a?(Float) ?
         @t : Rufus.parse_duration_string(@t)
 
       @at = (Time.now + iin).to_f
@@ -366,7 +366,7 @@ module Scheduler
     def determine_frequency
 
       @frequency =
-        if @t.is_a?(Fixnum) || @t.is_a?(Float)
+        if @t.is_a?(Integer) || @t.is_a?(Float)
           @t
         else
           Rufus.parse_duration_string(@t)
